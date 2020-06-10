@@ -18,7 +18,7 @@
     - [`app.module.ts`](#appmodulets)
     - [`boilerplate.polyfill.ts`](#boilerplatepolyfillts)
     - [`snake-naming.strategy.ts`](#snake-namingstrategyts)
-  - [`.*.env`](#env)
+  - [`.env.*`](#env)
   - [`.eslintrc.json`](#eslintrcjson)
   - [`tslint.json`](#tslintjson)
 
@@ -32,7 +32,7 @@ You found me! :wink:
 
 ## `.vuepress`
 
-Documentation config and destination folder See [VuePress doc](https://vuepress.vuejs.org) for more
+Documentation config and destination folder See [VuePress doc](https://vuepress.vuejs.org) for more.
 
 ## `src`
 
@@ -96,7 +96,7 @@ const userDtos = users.toDtos();
 
 We are using snake naming strategy for typeorm, so when you will generate migration it automatically will set snake_case column name from entity fields.
 
-## `.*.env`
+## `.env.*`
 
 Environment variables which will load before app start and will be stored in `process.env`, (*) is a env name (development, staging, production, ...)
 
