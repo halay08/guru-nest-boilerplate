@@ -1,0 +1,53 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "target": "es6",
+        "sourceMap": true,
+        "allowJs": true,
+        "outDir": "./dist",
+        "baseUrl": "./src",
+        "paths": {
+            "@/src/*": ["./*"],
+            "@/common": ["common"],
+            "@/common/*": ["common/*"],
+            "@/database": ["database"],
+            "@/database/*": ["database/*"],
+            "@/decorators": ["decorators"],
+            "@/decorators/*": ["decorators/*"],
+            "@/exceptions": ["exceptions"],
+            "@/exceptions/*": ["exceptions/*"],
+            "@/filters": ["filters"],
+            "@/filters/*": ["filters/*"],
+            "@/guards": ["guards"],
+            "@/guards/*": ["guards/*"],
+            "@/interceptors": ["interceptors"],
+            "@/interceptors/*": ["interceptors/*"],
+            "@/interfaces": ["interfaces"],
+            "@/interfaces/*": ["interfaces/*"],
+            "@/middlewares": ["middlewares"],
+            "@/middlewares/*": ["middlewares/*"],
+            "@/modules": ["modules"],
+            "@/modules/*": ["modules/*"],
+            "@/providers": ["providers"],
+            "@/providers/*": ["providers/*"],
+            "@/shared": ["shared"],
+            "@/shared/*": ["shared/*"],
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
