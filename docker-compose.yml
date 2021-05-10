@@ -20,7 +20,7 @@ services:
 
         entrypoint: []
         command:
-            npm run dev
+            yarn dev
         links:
             - mariadb
     mariadb:
