@@ -1,4 +1,4 @@
-Guru NestJS Boilerplate
+# Guru NestJS Boilerplate
 
 [![Guru NestJS](./nest-logo.png)](https://github.com/nestjs/nest)
 
