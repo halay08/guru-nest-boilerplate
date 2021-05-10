@@ -54,6 +54,7 @@
         "express-rate-limit": "^5.2.6",
         "faker": "^5.5.3",
         "file-type": "^16.3.0",
+        "fs": "^0.0.1-security",
         "helmet": "^4.5.0",
         "jsonwebtoken": "^8.5.1",
         "lodash": "^4.17.21",

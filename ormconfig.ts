@@ -1,6 +1,7 @@
 import './src/boilerplate.polyfill';
 
 import dotenv from 'dotenv';
+import fs from 'fs';
 
 const {
     DB_TYPE,
@@ -14,8 +15,14 @@ const {
 
 import { SnakeNamingStrategy } from './src/snake-naming.strategy';
 
+let path = `.env.${NODE_ENV}`;
+
+if (!fs.existsSync(path)) {
+    path = '.env';
+}
+
 dotenv.config({
-    path: `.${NODE_ENV}.env`,
+    path,
 });
 
 // Replace \\n with \n to support multiline strings in AWS

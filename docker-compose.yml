@@ -21,31 +21,31 @@ services:
         entrypoint: []
         command:
             npm run dev
-    #     links:
-    #         - mariadb
-    # mariadb:
-    #     image: mariadb
-    #     container_name: mariadb
-    #     environment:
-    #         MYSQL_DATABASE: guru
-    #         MYSQL_USER: guru
-    #         MYSQL_PASSWORD: guru
-    #         MYSQL_ROOT_PASSWORD: root
-    #     ports:
-    #         - 3306:3306
-    #     volumes:
-    #         - ./data/db:/var/lib/mysql
-    #     networks:
-    #         guru_network:
-    #             ipv4_address: 99.0.0.2
-    # adminer:
-    #     image: adminer
-    #     restart: always
-    #     ports:
-    #         - 8080:8080
-    #     networks:
-    #         guru_network:
-    #             ipv4_address: 99.0.0.3
+        links:
+            - mariadb
+    mariadb:
+        image: mariadb
+        container_name: mariadb
+        environment:
+            MYSQL_DATABASE: guru
+            MYSQL_USER: guru
+            MYSQL_PASSWORD: guru
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - 3306:3306
+        volumes:
+            - ./data/db:/var/lib/mysql
+        networks:
+            guru_network:
+                ipv4_address: 99.0.0.3
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+        networks:
+            guru_network:
+                ipv4_address: 99.0.0.4
 
 networks:
     guru_network:

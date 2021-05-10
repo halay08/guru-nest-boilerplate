@@ -93,10 +93,10 @@ $ nest g <schematic> <name> [options]
 
 ``` sh
 # Generate a controller
-$ nest generate controller projects
+$ nest g controller projects
 
-# Generate CRUD resource
-$ nest g resource users
+# Generate CRUD resource with name `project` inside modules directory
+$ nest g resource modules/project
 
 > ? What transport layer do you use? GraphQL (code first)
 > ? Would you like to generate CRUD entry points? Yes

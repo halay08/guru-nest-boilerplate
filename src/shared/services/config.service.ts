@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import dotenv from 'dotenv';
+import fs from 'fs';
 
 import { IAwsConfig } from '../../interfaces/IAwsConfig';
 import { SnakeNamingStrategy } from '../../snake-naming.strategy';
@@ -8,8 +9,14 @@ import { UserSubscriber } from '../entity-subscribers/user-subscriber';
 export class ConfigService {
     constructor() {
         const nodeEnv = this.nodeEnv;
+        let path = `.env.${nodeEnv}`;
+
+        if (!fs.existsSync(path)) {
+            path = '.env';
+        }
+
         dotenv.config({
-            path: `.${nodeEnv}.env`,
+            path,
         });
 
         // Replace \\n with \n to support multiline strings in AWS
@@ -72,7 +79,7 @@ export class ConfigService {
             entities,
             migrations,
             keepConnectionAlive: true,
-            type: 'postgres',
+            type: 'mysql',
             host: this.get('DB_HOST'),
             port: this.getNumber('DB_PORT'),
             username: this.get('DB_USERNAME'),

@@ -66,12 +66,9 @@ typings/
 
 # IntelliJ project files
 .idea
+.vscode
 *.iml
 out
 gen
 dist
 mongo
-
-
-# Docker compose ganarated files
-db-data
