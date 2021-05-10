@@ -135,6 +135,12 @@ Start all services
 $ docker-compose up -d
 ```
 
+View app container log
+
+```sh
+$ docker logs guru_nest_boilerplate -f
+```
+
 ## Troubleshooting
 
 For help, discussion about best practices, or any other conversation that would benefit from being searchable:

@@ -5,6 +5,7 @@
     "author": "Khiem Le <halay08@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "prebuild": "rimraf dist",
         "build": "tsc -p tsconfig.build.json",
         "postbuild": "copyfiles --up 1 src/**/*.json dist",
         "hmr": "node dist/main.hmr.ts",
