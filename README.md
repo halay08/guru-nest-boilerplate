@@ -4,6 +4,18 @@
 
 > This is the boilerplate of NodeJS Typescript using NestJS Framework, MySQL and TypeOrm. Questions, feedback, and for now, even bikeshedding are welcome. 😄
 
+- [Guru NestJS Boilerplate](#guru-nestjs-boilerplate)
+  - [Prerequisites](#prerequisites)
+  - [Getting started](#getting-started)
+  - [Installation](#installation)
+    - [ENV Configuration](#env-configuration)
+    - [Setup docker](#setup-docker)
+  - [Database](#database)
+  - [Migrations](#migrations)
+  - [Dev server](#dev-server)
+  - [Nest generators](#nest-generators)
+  - [Troubleshooting](#troubleshooting)
+
 ## Prerequisites
 
 * **Docker**. Follow the Docker document at [Offical Docker site](https://docs.docker.com/ "Docker document") guide.
@@ -26,11 +38,7 @@ $ yarn
 
 > Note: Don't delete yarn.lock before installation
 
-### Database
-
-This boilerplate uses [TypeORM](https://github.com/typeorm/typeorm) with Data Mapper pattern. MySQL is used as the database type.
-
-### Configuration
+### ENV Configuration
 
 Then clone the sample configuration file `.env.example` to `.env` file and modify mysql configrations.
 
@@ -42,14 +50,44 @@ DB_PASSWORD=guru
 DB_DATABASE=guru
 ```
 
-### Migration & Seeding
+### Setup docker
+
+First at all,  please create docker network and subnetwork:
+
+```sh
+$ docker network inspect guru_network > /dev/null || docker network create --ipam-driver default --subnet=99.0.0.0/16 --attachable guru_network
+```
+
+Give write permission for `data` directory
+
+```sh
+$ chmod 0777 .data
+```
+
+Start all services
+
+```
+$ docker-compose up -d
+```
+
+View app container log
+
+```sh
+$ docker logs guru_nest_boilerplate -f
+```
+
+## Database
+
+This boilerplate uses [TypeORM](https://github.com/typeorm/typeorm) with Data Mapper pattern. MySQL is used as the database type.
+
+## Migrations
 
 A sample migration to create the `user` table is already generated in `src/database/migrations` directory.
 
 You can create other migration files with running the following command:
 
 ```sh
-$ yarn migration:create project_table
+$ yarn migration:create create_project_table
 
 # Truncate full database (note: it isn't deleting the database)
 yarn schema:drop
@@ -69,7 +107,7 @@ Run seedings:
 $ yarn seed:run
 ```
 
-### Dev server
+## Dev server
 
 > Note: If you're on Linux and see an `ENOSPC` error when running the commands below, you must [increase the number of available file watchers](https://stackoverflow.com/questions/22475849/node-js-error-enospc#answer-32600959).
 
@@ -84,7 +122,7 @@ yarn watch
 yarn debug
 ```
 
-## Nest generate
+## Nest generators
 
 ```sh
 $ nest generate <schematic> <name> [options]
@@ -114,32 +152,6 @@ $ nest g resource modules/project
 ```
 
 See more at [NestJS CLI usage documentation](https://docs.nestjs.com/cli/usages).
-
-## Use docker
-
-First at all,  please create docker network and subnetwork:
-
-```sh
-$ docker network inspect guru_network > /dev/null || docker network create --ipam-driver default --subnet=99.0.0.0/16 --attachable guru_network
-```
-
-Give write permission for `data` directory
-
-```sh
-$ chmod 0777 .data
-```
-
-Start all services
-
-```
-$ docker-compose up -d
-```
-
-View app container log
-
-```sh
-$ docker logs guru_nest_boilerplate -f
-```
 
 ## Troubleshooting
 
